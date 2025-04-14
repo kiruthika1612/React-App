@@ -1,9 +1,29 @@
 
 import './App.css';
 
+let language = "ReactLanguage";
+let moon = "🌙";
+
+function Header(props)
+{
+  return(
+    <header>
+      <h3>{props.name}'s React App </h3>
+      <p>Since {props.year}</p>
+      
+    </header>
+  );
+}
+
+
 function App() {
   return (
-    <h1>Hello React</h1>
+    <div>
+      <Header name="Kiruthika" year = {1994}/>
+      <h1>Hello {language.toUpperCase()} {moon} !!</h1>
+    </div>
+    
+    
   );
 }
 
