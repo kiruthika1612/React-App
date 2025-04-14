@@ -26,13 +26,26 @@ function Header2({name, month, year})
   );
 }
 
+  function Receipe1(){
+  return(
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+  );
+}
+
 
 function App() {
   return (
     <div>
-      <Header name="Kiruthika" year = {1994} month={new Date().getMonth()}/>
-      <Header2 name="Nishanth" year = {1993} month={new Date().getMonth()}/>
       <h1>Welcome to {language.toUpperCase()} {moon} !!</h1>
+      <Header name="Kiruthika" year = {1994} month={new Date().getMonth()}/>
+      <Receipe1 />
+      <Header2 name="Nishanth" year = {1993} month={new Date().getMonth()}/>
+      
     </div>
     
     
