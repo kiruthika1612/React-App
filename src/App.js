@@ -1,4 +1,5 @@
 
+import React from 'react';
 import './App.css';
 import chef from "./images/chef.jpg";
 
@@ -9,7 +10,7 @@ function Header(props)
 {
   return(
     <header>
-      <h3>{props.name}'s Specials </h3>
+      <h3>Chef. {props.name}'s Specials </h3>
       <p>Since {props.year} {props.month}</p>
       
     </header>
@@ -29,6 +30,7 @@ function Header2({name, month, year})
 
   function Receipe1(){
   return(
+    <>
     <main>
       <img src="https://github.com/kiruthika1612.png"
       height={200} alt="mypic from git hub profile"  /> 
@@ -38,6 +40,7 @@ function Header2({name, month, year})
       <li>kothu Parota</li>
     </ul>
     </main>
+    </>
   );
 }
 
@@ -58,6 +61,7 @@ console.log(receipeObjects);
 function Receipe2({dishes})
 {
   return(
+    <React.Fragment>
     <main>
     <img src={chef} height={200} alt="Pic of a Chef"/>
     <ul>
@@ -66,6 +70,7 @@ function Receipe2({dishes})
 ))}
     </ul>
     </main>
+    </React.Fragment>
   );
 }
 
