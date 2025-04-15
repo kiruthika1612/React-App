@@ -29,11 +29,28 @@ function Header2({name, month, year})
   function Receipe1(){
   return(
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
+      <li>Idly n Sambhar</li>
+      <li>Briyani</li>
+      <li>kothu Parota</li>
     </ul>
 
+  );
+}
+
+const receipes = [
+  "Tasty meatball Pasta",
+  "Veg Spagetti",
+  "Quail Fry"
+];
+
+function Receipe2({dishes})
+{
+  return(
+    <ul>
+{dishes.map((dish)=>(
+  <li style={{listStyleType: "none"}}>{dish}</li>
+))}
+    </ul>
   );
 }
 
@@ -45,7 +62,7 @@ function App() {
       <Header name="Kiruthika" year = {1994} month={new Date().getMonth()}/>
       <Receipe1 />
       <Header2 name="Nishanth" year = {1993} month={new Date().getMonth()}/>
-      
+      <Receipe2 dishes={receipes}/>
     </div>
     
     
