@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+const [first_animal, ,third_animal]=["Giraffe","Zebra","Bear"];
+console.log(first_animal);
+//console.log(second_animal);
+console.log(third_animal);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useEffect,useReducer } from 'react';
 import './App.css';
 import chef from "./images/chef.jpg";
+//import { useState } from 'react';
 
 let language = "Donavan's Kitchen";
 let moon = "🍛";
@@ -58,10 +59,17 @@ const receipeObjects = receipes.map((dish,i)=>({
 
 console.log(receipeObjects);
 
-function Receipe2({dishes})
+function Receipe2({dishes, openStatus, onStatus})
 {
   return(
-    <React.Fragment>
+        <React.Fragment>
+          <button onClick={()=>onStatus(true)}>
+            I want to open
+          </button>
+          <h2>
+            Tasty specials from the Chef is now {" "}
+            {openStatus?"Open":"Closed"}
+          </h2>
     <main>
     <img src={chef} height={200} alt="Pic of a Chef"/>
     <ul>
@@ -76,13 +84,32 @@ function Receipe2({dishes})
 
 
 function App() {
-  return (
+ // const [status,setStatus]=useState(true);
+ const [status, toggle]=useReducer (
+  (status)=>!status, true
+ );
+
+
+ useEffect(()=>{
+  console.log(`The restaurant is ${status ?"open":"closed"}`);
+ });//we can add []->only capstures initial state
+ return (
     <div>
+
       <h1>Welcome to {language.toUpperCase()} {moon} !!</h1>
+      <h2>we are currently {" "}{status?"Open :)":"Closed :("}</h2>
+      
+      {/*<button onClick={()=>setStatus(!status)}>{status?"Close":"Open"} restaurant</button>*/}
+     <button onClick={toggle}>
+      {status?"Close":"Open"} Restaurant
+     </button>
       <Header name="Kiruthika" year = {1994} month={new Date().getMonth()}/>
       <Receipe1 />
       <Header2 name="Nishanth" year = {1993} month={new Date().getMonth()}/>
-      <Receipe2 dishes={receipeObjects}/>
+      <Receipe2 dishes={receipeObjects}
+      openStatus={status}
+      onStatus={toggle}
+      />
     </div>
     
     
